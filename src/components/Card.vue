@@ -26,10 +26,6 @@ export default {
     return {
       name:this.title,
     }
-  },
-  mounted() {
-    console.log(this.src);
-    console.log(this.title)
   }
 };
 </script>
