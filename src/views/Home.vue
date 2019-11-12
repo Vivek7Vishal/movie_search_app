@@ -9,6 +9,7 @@
           <Card :src="item.Poster" :title="item.Title"/>
         </div>
       </div>
+      <Pagination v-if="result.length > 0"></Pagination>
     </div>
   </div>
 </template>
@@ -18,6 +19,7 @@
 import Header from "@/components/Header.vue";
 import Card from "@/components/Card.vue";
 import Search from "@/components/Search.vue";
+import Pagination from "@/components/Pagination.vue";
 import getMovieNameByTitle from '../service/movieApi.js'
 
 export default {
@@ -25,7 +27,8 @@ export default {
   components: {
     Header,
     Card,
-    Search
+    Search,
+    Pagination
   },
   data() {
     return {
