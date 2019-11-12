@@ -1,13 +1,10 @@
 <template>
   <div>
     <Header />
-
     <div class="main">
       <Search @doSearch= "searchMovies"/>
-      <div class="content columns is-multiline">
-        <div class="column is-3 is-mobile" v-for="item in result.Search" :key="item.index">
-          <Card :src="item.Poster" :title="item.Title"/>
-        </div>
+      <div class="movie-result">
+        <Card v-for="item in result.Search" :key="item.index" :src="item.Poster" :title="item.Title"/>
       </div>
       <Pagination v-if="result.length > 0"></Pagination>
     </div>
@@ -45,18 +42,27 @@ export default {
 
 <style lang="scss" scoped>
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 900px;
+  max-width: 900px;
   margin: 0 auto;
-  box-sizing: border-box;
   margin-top: 20px;
 }
 .content {
-  width: 900px;
+  max-width: 900px;
   margin-top: 20px;
   margin: 0 auto;
   box-sizing: border-box;
+}
+
+.movie-result {
+  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 412px){
+  .movie-result {
+    justify-content: space-around;
+  }
 }
 </style>
