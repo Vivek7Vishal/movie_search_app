@@ -1,9 +1,7 @@
  <template>
  <div class="searchbar">
-  <div class="search-container">
     <img class="input-icon" src="../assets/icon-search.png" />
     <input type="text" v-model="query" placeholder="type a movie name" @keyup.enter="doSearch"/>
-  </div>
   </div>
 </template>
 
@@ -24,9 +22,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .searchbar {
-  display: flex;
-  justify-content: center;
-
   .input-icon {
     width: 25px;
     position: absolute;
