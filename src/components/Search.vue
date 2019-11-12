@@ -25,7 +25,7 @@ export default {
 <style lang="scss" scoped>
 .searchbar {
   display: flex;
-  justify-content: center ;
+  justify-content: center;
 
   .input-icon {
     width: 25px;

@@ -57,10 +57,10 @@ export default {
   max-width: 900px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
-@media screen and (max-width: 412px){
+@media screen and (max-width: 414px){
   .movie-result {
     justify-content: space-around;
   }
