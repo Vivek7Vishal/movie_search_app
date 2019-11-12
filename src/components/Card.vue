@@ -3,6 +3,9 @@
     <div class="card-image">
         <img :src="src" >
     </div>
+    <footer class="card-footer">
+      <p class="card-footer-item">{{name}}</p>
+    </footer>
   </div>
 </template>
 
@@ -13,10 +16,20 @@ export default {
     src: {
       type: String,
       required: false
+    },
+    title: {
+      type: String,
+      required: false
+    }
+  },
+  data(){
+    return {
+      name:this.title,
     }
   },
   mounted() {
     console.log(this.src);
+    console.log(this.title)
   }
 };
 </script>

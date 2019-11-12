@@ -6,7 +6,7 @@
       <Search @doSearch= "searchMovies"/>
       <div class="content columns is-multiline">
         <div class="column is-3 is-mobile" v-for="item in result.Search" :key="item.index">
-          <Card :src="item.Poster" />
+          <Card :src="item.Poster" :title="item.Title"/>
         </div>
       </div>
     </div>
