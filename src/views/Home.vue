@@ -6,7 +6,7 @@
       <div class="movie-result">
         <Card v-for="item in result.Search" :key="item.index" :src="item.Poster" :title="item.Title"/>
       </div>
-      <Pagination v-if="result.length > 0"></Pagination>
+      <Pagination v-if="result.totalResults > 0" :currentPage="currentPage" @doSearch= "searchMoviesNextPage"/>
     </div>
   </div>
 </template>
@@ -29,13 +29,20 @@ export default {
   },
   data() {
     return {
-      result: []
+      result: [],
+      currentPage: 1
     };
   },
   methods: {
     async searchMovies(query){
-      this.result = await getMovieNameByTitle(query, '1');
-    }
+      this.query= query;
+      this.result = await getMovieNameByTitle(query, this.currentPage);
+    },
+    async searchMoviesNextPage(pageNumber){
+      this.currentPage= pageNumber;
+      this.result = await getMovieNameByTitle(this.query, pageNumber);
+    },
+
   }
 };
 </script>
