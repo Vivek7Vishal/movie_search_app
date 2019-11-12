@@ -25,7 +25,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .navbar{
-  width: 900px;
   margin: 0 auto;
   box-sizing: border-box;
  

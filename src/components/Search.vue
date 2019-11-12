@@ -1,7 +1,7 @@
  <template>
  <div class="searchbar">
   <div class="search-container">
-    <img width ="15" src="./icon-search.png">
+    <img class="input-icon" src="../assets/icon-search.png" />
     <input type="text" v-model="query" placeholder="type a movie name" @keyup.enter="doSearch"/>
   </div>
   </div>
@@ -27,17 +27,19 @@ export default {
   display: flex;
   justify-content: center ;
 
-  .search-container {
-    width:500px;
-    border: 1px solid whitesmoke;
+  .input-icon {
+    width: 25px;
+    position: absolute;
+    margin-left: 13px;
+    margin-top: 15px;
   }
-  img{
-  }
-  input{
-    padding:5px;
-    width: 462px;
+  input[type=text]{
+    padding: 20px;
+    padding-left: 50px;
+    min-width: 400px;
     border:none;
     font-size: 16px;
+    text-align: center;
   }
   button{
     background-color: none;
