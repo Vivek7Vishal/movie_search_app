@@ -35,6 +35,7 @@ export default {
     border:none;
     font-size: 16px;
     text-align: center;
+    border: 1px solid whitesmoke;
   }
   button{
     background-color: none;

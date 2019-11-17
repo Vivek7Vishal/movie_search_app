@@ -6,35 +6,44 @@
       <li>
         <a class="pagination-link" @click="getPage(1)">1</a>
       </li>
-      <li>
+      <li v-if="finalPage>5">
         <span class="pagination-ellipsis">&hellip;</span>
       </li>
-      <li>
-        <a class="pagination-link" @click="getPage(5)" >5</a>
+      <li v-if="finalPage>5">
+        <a class="pagination-link"  @click="getPage(5)">5</a>
       </li>
-      <li>
+      <li v-if="finalPage>5">
         <span class="pagination-ellipsis">&hellip;</span>
       </li>
-      <li>
-        <a class="pagination-link" @click="getPage()">{{totalResults}}</a>
+      <li v-if="finalPage>5">
+        <a class="pagination-link" v-if="finalPage>5" @click="getPage(finalPage)">{{finalPage}}</a>
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
+const pageSize = 10;
 export default {
   name: "Pagination",
-  props: ["totalResults", "currentPage"],
+  props: ['totalResults', 'currentPage'],
   methods: {
     getPage(pageNumber) {
-      if(pageNumber > 0){
-this.$emit("doSearch", pageNumber);
+      if (pageNumber > 0) {
+        this.$emit("doSearch", pageNumber);
       }
     }
   },
+  computed:{
+    finalPage: function(){
+      return Math.ceil(this.totalResults / pageSize);
+    },
+  }
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.pagination{
+  margin:20px 0;
+}
 </style>
