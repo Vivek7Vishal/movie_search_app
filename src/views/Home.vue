@@ -23,7 +23,7 @@
         :totalResults="result.totalResults"
         @doSearch="searchMoviesNextPage"
       />
-      <h2 v-if="result.Response=== 'False'">{{result.Error}}</h2>
+      <h2 v-if="result.Response === 'False'">{{result.Error}}</h2>
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
  <template>
- <div class="searchbar">
+  <div class="searchbar">
     <img class="input-icon" src="../assets/icon-search.png" />
-    <input type="text" v-model="query" placeholder="type a movie name" @keyup.enter="doSearch"/>
+    <input type="text" v-model="query" placeholder="type a movie name" @keyup.enter="doSearch" />
   </div>
 </template>
 
@@ -13,14 +13,16 @@ export default {
       query: ""
     };
   },
-  methods:{
-    doSearch(){
-      this.$emit('doSearch', this.query)
+  methods: {
+    doSearch() {
+      this.$emit("doSearch", this.query);
     }
   }
 };
 </script>
 <style lang="scss" scoped>
+$breakpoint: 820px;
+
 .searchbar {
   .input-icon {
     width: 25px;
@@ -28,17 +30,35 @@ export default {
     margin-left: 13px;
     margin-top: 15px;
   }
-  input[type=text]{
+  input[type="text"] {
     padding: 20px;
     padding-left: 50px;
     min-width: 400px;
-    border:none;
+    border: none;
     font-size: 16px;
     text-align: center;
     border: 1px solid whitesmoke;
   }
-  button{
+  button {
     background-color: none;
+  }
+
+  @media (max-width: $breakpoint) {
+    .input-icon {
+      width: 15px;
+      position: absolute;
+      margin-left: 13px;
+      margin-top: 15px;
+    }
+    input[type="text"] {
+      padding: 20px;
+      padding-left: 50px;
+      min-width: 400px;
+      border: none;
+      font-size: 16px;
+      text-align: center;
+      border: 1px solid whitesmoke;
+    }
   }
 }
 </style>
